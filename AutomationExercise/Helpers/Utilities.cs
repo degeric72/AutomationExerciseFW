@@ -18,6 +18,8 @@ namespace AutomationExercise.Helpers
             this._driver = driver;
         }
 
+        
+
         public string GenerateRandomEmail()
         {
             return string.Format("email{0}@mailnator.com", RandomName.Next(10000, 100000));
@@ -29,13 +31,17 @@ namespace AutomationExercise.Helpers
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(locator)).Click();
         }
 
+        
+        
+
         public void EnterTextInElement(By locator, string text)
         {
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator)).SendKeys(text);
         }
 
-            public bool ElementIsDisplayed(By locator)
+       
+        public bool ElementIsDisplayed(By locator)
             {
                 var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
                 return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator)).Displayed;
