@@ -8,18 +8,19 @@ using System.Threading.Tasks;
 
 namespace AutomationExercise.Pages
 {
-    class ContacUsPage
+    class ContactUsPage
     {
         readonly IWebDriver _driver;
-        public By contactPage = By.Id("contac-page");
+        public By contactPage = By.Id("contact-page");
         public By name = By.Name("name");
         public By email = By.Name("email");
         public By subject = By.Name("subject");
         public By message = By.Id("message");
         public By submit = By.Name("submit");
+        public By uploadBtn = By.Name("upload_file");
 
 
-        public ContacUsPage(IWebDriver driver)
+        public ContactUsPage(IWebDriver driver)
         {
             this._driver = driver;
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));

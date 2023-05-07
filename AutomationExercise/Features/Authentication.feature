@@ -10,7 +10,7 @@ Scenario: User can log in
 	When user submits login form
 	Then user will be logged in
 
-	Scenario: User can sign up
+Scenario: User can sign up
 		Given user opens sign in page
 			And enters 'Dragan' name and valid email address
 			And user clicks on SignUp button
@@ -18,3 +18,8 @@ Scenario: User can log in
 			And submits the signup form
 		Then user will get 'Account Created!' success message
 			And user will be logged in 
+
+Scenario: Users can delete their account 
+		Given user registers new account with 'Dragan' name
+		When user selects option for deleting the account
+		Then account is deleted with 'Account Deleted!' message

@@ -9,4 +9,4 @@ Scenario: User can send message via contact us form
 	When user enters all required fields
 	And submits contac us form
 	And confirm the prompt message 
-	Then user will receive 'Succes! Your details have been submitted succesfully.' message
+	Then user will receive 'Success! Your details have been submitted successfully.' message

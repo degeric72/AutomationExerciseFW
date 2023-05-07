@@ -24,17 +24,19 @@ namespace AutomationExercise.Steps
         [When(@"user enters all required fields")]
         public void WhenUserEntersAllRequiredFields()
         {
-            ContacUsPage cup = new ContacUsPage(Driver);
+            ContactUsPage cup = new ContactUsPage(Driver);
             ut.EnterTextInElement(cup.name, TestConstants.FirstName + " " + TestConstants.LastName);
             ut.EnterTextInElement(cup.email, TestConstants.Username);
             ut.EnterTextInElement(cup.subject, TestConstants.Subject);
             ut.EnterTextInElement(cup.message, TestConstants.Message);
+            string path = @"C:\Users\Egeric\Downloads\Narcissus.pdf";
+            Driver.FindElement(cup.uploadBtn).SendKeys(path);
         }
         
         [When(@"submits contac us form")]
         public void WhenSubmitsContactUsForm()
         {
-            ContacUsPage cup = new ContacUsPage(Driver);
+            ContactUsPage cup = new ContactUsPage(Driver);
             ut.ClickOnElement(cup.submit);
         }
         
