@@ -51,12 +51,23 @@ namespace AutomationExercise.Helpers
             selectElement.SelectByValue(option);
             }
 
-            public bool TextPresentInElement(string text)
+        internal void ClickOnElement(object addBtn)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TextPresentInElement(string text)
             {
             By headline = By.XPath("//*[contains(text(),'" + text + "')]");
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
             return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(headline)).Displayed;
             }
+
+        public string ReturnTextFromElement(By locator)
+        {
+            return _driver.FindElement(locator).GetAttribute("textContent");
+            //return _driver.FindElement(locator).Text;
+        }
         }
     }
 

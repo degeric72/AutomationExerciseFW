@@ -15,6 +15,9 @@ namespace AutomationExercise.Pages
         public By productsPage = By.ClassName("features_items");
         public By search = By.Name("search");
         public By searchbtn = By.ClassName("fa-search");
+        public By viewProduct = By.ClassName("fa-plus-square");
+
+
 
         public ProductsPage(IWebDriver driver)
         {

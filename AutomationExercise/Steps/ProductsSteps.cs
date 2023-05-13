@@ -13,6 +13,13 @@ namespace AutomationExercise.Steps
         Utilities ut = new Utilities(Driver);
         HeaderPage hp = new HeaderPage(Driver);
 
+        private readonly ProductData productData;
+
+        public ProductsSteps(ProductData productData)
+        {
+            this.productData = productData;
+        }
+
     
         [Given(@"user opens products page")]
         public void GivenUserOpensProductsPage()
@@ -39,5 +46,36 @@ namespace AutomationExercise.Steps
         {
             Assert.True(ut.TextPresentInElement(message), "Searched Products are not displayed");
         }
+
+        [When(@"opens first search result")]
+        public void WhenOpensFirstSearchResult()
+        {
+            ProductsPage pdp = new ProductsPage(Driver);
+            ut.ClickOnElement(pdp.viewProduct);
+        }
+
+        [When(@"user clicks on Add to Cart buton")]
+        public void WhenUserClicksOnAddToCartButon()
+        {
+            ProductDetailsPage pdp = new ProductDetailsPage(Driver);
+            productData.ProductName = ut.ReturnTextFromElement(pdp.productName);
+            ut.ClickOnElement(pdp.addBtn);
+
+        }
+
+        [When(@"proceeds to the cart")]
+        public void WhenProceedsToTheCart()
+        {
+            ProductDetailsPage pdp = new ProductDetailsPage(Driver);
+            ut.ClickOnElement(pdp.viewCart);
+        }
+
+        [Then(@"shopping cart will be displayed expected product inside")]
+        public void ThenShoppingCartWillBeDisplayedExpectedProductInside()
+        {
+            Assert.True(ut.TextPresentInElement(productData.ProductName), "Expected product is not in the cart");
+        }
+
+
     }
 }
