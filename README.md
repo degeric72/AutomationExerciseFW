@@ -7,3 +7,5 @@ Folder structure:
 2.Steps
 3.Pages
 4.Helpers
+
+It is necessary to instal Specflow 
